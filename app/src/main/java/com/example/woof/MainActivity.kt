@@ -58,11 +58,14 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+
 @Composable
 fun WoofApp() {
     Scaffold(topBar = { WoofTopAppBar()} ) {
-        LazyColumn(modifier = Modifier.background(MaterialTheme.colors.background)) {
+        paddingValues->
+        LazyColumn(modifier = Modifier
+            .padding(paddingValues)
+            .background(MaterialTheme.colors.background)) {
             items(dogs) {
                 DogItem(dog = it)
             }
